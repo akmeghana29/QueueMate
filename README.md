@@ -1,5 +1,5 @@
 # QueueMate
-Smart Queue Management System
+Smart Queue Management System Live at: https://akmeghana29.github.io/QueueMate/
 
 What is QueueMate?
 

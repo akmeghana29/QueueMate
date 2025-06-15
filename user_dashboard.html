@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QueueMate - User Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      background-color: #343a40;
+      color: white;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 15px 20px;
+      border-bottom: 1px solid #495057;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+
+    .content {
+      margin-left: 0;
+      transition: all 0.3s ease;
+      padding: 2rem;
+    }
+
+    .content.shifted {
+      margin-left: 250px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <h4 class="text-center py-3 border-bottom border-secondary">QueueMate</h4>
+    <a href="user_dashboard.html">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Your Bookings</a>
+    <a href="#">Live Queue Status</a>
+    <a href="#">Customer Support</a>
+  </div>
+
+  <!-- Content -->
+  <div id="mainContent" class="content">
+    <div class="d-flex align-items-center mb-4">
+      <i id="menuToggle" class="bi bi-list hamburger me-3"></i>
+      <h2 class="mb-0">Book Token</h2>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="card p-4 shadow-sm rounded-4">
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="organization" class="form-label">Select Organization</label>
+            <select class="form-select" id="organization">
+              <option value="">Choose...</option>
+              <option value="hospital">City Hospital</option>
+              <option value="govt-office">Govt Office</option>
+              <option value="passport">Passport Center</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="place" class="form-label">Select Place</label>
+            <select class="form-select" id="place">
+              <option value="">Choose...</option>
+              <option value="delhi">Delhi</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="hyderabad">Hyderabad</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="date" class="form-label">Select Date</label>
+            <input type="date" class="form-control" id="date" min="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="time" class="form-label">Select Time</label>
+            <select class="form-select" id="time">
+              <option value="">Choose...</option>
+              <!-- Slots: 9AM to 5PM in 30-minute intervals -->
+              <option value="9:00">9:00 AM</option>
+              <option value="9:30">9:30 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="10:30">10:30 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="15:30">3:30 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="16:30">4:30 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-grid mt-3">
+          <button type="submit" class="btn btn-success">Check Availability & Book Token</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script for sidebar toggle -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("mainContent");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      content.classList.toggle("shifted");
+    });
+
+    // Set minimum date to today
+    const dateInput = document.getElementById("date");
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  </script>
+
+</body>
+</html>

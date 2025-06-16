@@ -1,5 +1,5 @@
 # QueueMate
-Live at: //akmeghana29.github.io/QueueMate/
+Website: https://akmeghana29.github.io/QueueMate/ 
 
 What is QueueMate?
 

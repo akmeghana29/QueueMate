@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QueueMate - Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      background-color: #212529;
+      color: white;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      color: white;
+      display: block;
+      padding: 15px 20px;
+      border-bottom: 1px solid #343a40;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #343a40;
+    }
+
+    .content {
+      margin-left: 0;
+      transition: all 0.3s ease;
+      padding: 2rem;
+    }
+
+    .content.shifted {
+      margin-left: 250px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .token-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #198754;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .counter-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #0d6efd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <h4 class="text-center py-3 border-bottom border-secondary">QueueMate</h4>
+    <a href="admin_dashboard.html">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Customer Feedback</a>
+    <a href="#">Blocked Customers</a>
+  </div>
+
+  <!-- Content -->
+  <div id="mainContent" class="content">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div class="d-flex align-items-center">
+        <i id="menuToggle" class="bi bi-list hamburger me-3"></i>
+        <h2 class="mb-0">Counter Live Status</h2>
+      </div>
+      <div>
+        <span class="text-muted me-2">⏱️ Avg. Time / Customer:</span>
+        <span class="badge bg-primary">4 min</span>
+      </div>
+    </div>
+
+    <!-- Live Queue Section -->
+    <div class="card p-4 shadow-sm rounded-4">
+      <div class="d-flex align-items-center mb-4">
+        <div class="counter-icon me-3">C1</div>
+        <h5 class="mb-0">Active Queue</h5>
+      </div>
+
+      <div class="d-flex flex-wrap align-items-center mt-3">
+        <!-- Customer Tokens -->
+        <div class="token-icon" onclick="openTokenPopup('A01')">A01</div>
+        <div class="token-icon" onclick="openTokenPopup('A02')">A02</div>
+        <div class="token-icon" onclick="openTokenPopup('A03')">A03</div>
+        <div class="token-icon" onclick="openTokenPopup('A04')">A04</div>
+        <div class="token-icon" onclick="openTokenPopup('A05')">A05</div>
+      </div>
+    </div>
+  </div>
+
+<!-- Token Popup Modal -->
+<div class="modal fade" id="tokenModal" tabindex="-1" aria-labelledby="tokenModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tokenModalLabel">Token Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="tokenDetails">Loading token info...</p>
+        <p class="text-muted">Choose an action for this customer:</p>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" onclick="updateToken()">Update Token (Serve Completed)</button>
+          <button class="btn btn-warning" onclick="holdToken()">Put on Hold </button>
+          <button class="btn btn-danger" onclick="blockToken()">Block Customer</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("mainContent");
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      content.classList.toggle("shifted");
+    });
+
+    function openTokenPopup(tokenId) {
+      document.getElementById("tokenDetails").textContent = "Showing details for Token: " + tokenId;
+      const modal = new bootstrap.Modal(document.getElementById("tokenModal"));
+      modal.show();
+    }
+  </script>
+  <script>
+  let currentToken = null;
+
+  function openTokenPopup(tokenId) {
+    currentToken = tokenId;
+    document.getElementById("tokenDetails").textContent = "Token: " + tokenId;
+    const modal = new bootstrap.Modal(document.getElementById("tokenModal"));
+    modal.show();
+  }
+
+  function updateToken() {
+    const tokenElement = document.querySelector(`.token-icon:contains(${currentToken})`);
+    if (tokenElement) tokenElement.remove();
+    alert(`Token ${currentToken} has been served.`);
+    bootstrap.Modal.getInstance(document.getElementById("tokenModal")).hide();
+  }
+
+  function holdToken() {
+    const tokenElement = [...document.querySelectorAll(".token-icon")]
+      .find(el => el.textContent === currentToken);
+    if (tokenElement) {
+      tokenElement.textContent = "H";  // Simulating hold token goes to end
+      tokenElement.classList.add("bg-warning");
+      alert(`Token ${currentToken} is on hold and moved to token 21`);
+    }
+    bootstrap.Modal.getInstance(document.getElementById("tokenModal")).hide();
+  }
+
+  function blockToken() {
+    const tokenElement = [...document.querySelectorAll(".token-icon")]
+      .find(el => el.textContent === currentToken);
+    if (tokenElement) {
+      tokenElement.remove();
+      alert(`Token ${currentToken} is now blocked and cannot access services`);
+    }
+    bootstrap.Modal.getInstance(document.getElementById("tokenModal")).hide();
+  }
+
+  // Add :contains polyfill for querySelector if needed
+  (function() {
+    if (!Element.prototype.matches) {
+      Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    }
+    if (!Element.prototype.closest) {
+      Element.prototype.closest = function(s) {
+        var el = this;
+        do {
+          if (el.matches(s)) return el;
+          el = el.parentElement || el.parentNode;
+        } while (el !== null && el.nodeType === 1);
+        return null;
+      };
+    }
+  })();
+</script>
+
+</body>
+</html>

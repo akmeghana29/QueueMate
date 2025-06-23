@@ -1,0 +1,581 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.logo,
+#top-bar {
+  position: fixed;
+  z-index: 100000000000; /* Must be higher than any section */
+}
+
+.green-section {
+  height: 290vh;
+  background-color: #000000; /* any green shade you like */
+  z-index: 0;
+}
+
+
+/* Background image */
+.bg-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('bgimage.jpg'); /* Put your actual image path */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+
+/* Dark overlay without changing image color */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* You can reduce 0.6 to 0.4 for lighter */
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(32, 32, 32, 0), rgba(33, 33, 33, 0.8), #000000);
+}
+
+
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  font-family: 'Russo One', sans-serif;
+  font-size: 48px;
+  color: white;
+  z-index: 10;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 30px;
+  font-family: 'Audiowide', sans-serif;
+  z-index: 10;
+  user-select: none;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.logo-q {
+  font-size: 40px;
+  color: rgb(117, 159, 154);
+  letter-spacing: 2px;
+  position: relative;
+  top: -8px;     /* moves Q slightly up */
+  left: -16px;    /* moves Q slightly left */
+
+}
+
+.logo-text {
+  font-size: 18px;
+  color: rgb(240, 240, 240);
+  letter-spacing: 1px;
+  padding-left: 4px;
+  margin-top: 8px;
+  position: relative;
+  top: -12px;
+  left: -22px;
+}
+
+#top-bar {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  z-index: 10;
+}
+
+
+
+
+
+/* Home and About (off-white links) */
+#page-links {
+  display: flex;
+  gap: 30px;
+}
+
+.link-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.90rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+
+
+.link-text:hover {
+  color: #1DB9C3;
+}
+
+/* Sign Up & Sign In (unchanged from your original button style) */
+#auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: #ffffff; /* Or any color you like */
+  font-size: 0.90rem;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 5px 10px;
+}
+
+.btn:hover {
+  color: #1DB9C3; /* Slight hover effect */
+}
+
+.hero-text {
+  position: absolute;
+  top: 25%;
+  left: 100px;
+  max-width: 500px;
+  z-index: 5;
+  opacity: 1;
+}
+
+.hero-heading {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #c1cccc; /* soft white */
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.hero-subtext {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: #bcc2c0; /* light teal/greenish tone */
+  line-height: 1.6;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.get-started-btn {
+    font-size: 1.2rem;
+    padding: 14px 40px;
+    border-radius: 30px;         
+    background-color: #4E7A7A;  
+    color: white;
+    text-decoration: none;           
+    box-shadow: 0 5px 10px rgba(126, 137, 148, 0.5); 
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    margin-top: 25px; /* this gives space above the button */
+}
+
+.get-started-btn:hover {
+    background-color: #223333;
+    box-shadow: 0 7px 14px rgba(126, 137, 148, 0.5);
+}
+
+.right-info {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e0e0e0;
+  font-size: 0.90rem;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+}
+.right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  right: 220px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.right-description {
+  position: absolute;
+  top: 135%;
+  right: 15%;
+  max-width: 600px;
+  font-size: 1.5rem;
+  color: #cccccc;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+.right2-description {
+  position: absolute;
+  top: 255%;
+  right: 8%;
+  max-width: 600px;
+  font-size: 1.5rem;
+  color: #cccccc;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+}
+
+
+
+/* Animation 1 */
+.lottie-animation-one {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 150%;
+  left: 80px;
+  z-index: 3;
+  margin-top: 20px;
+}
+
+/* Animation 2 */
+.lottie-animation-two {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  top: 240%;
+  right: -530px;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+/* Animation 3 */
+.lottie-animation-three {
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  top: 330%;
+  left: 80px;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+/* Animation 4 */
+.lottie-animation-four {
+  width: 350px;
+  height: 400px;
+  position: absolute;
+  top: 410%;
+  right: -490px;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+
+/* === FAQ SECTION === */
+.faq-section {
+  background-color: #000;
+  padding: 60px 20px;
+  margin-top: -100px; /* pull up closer to animation 4 */
+  position: relative;
+  z-index: 5;
+}
+
+
+.faq-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Quicksand', sans-serif;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* White Rounded Box */
+.faq-box {
+  background-color: #91c1ce;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* FAQ Item */
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/* FAQ Question Button */
+.faq-question {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: #00b4d0;
+}
+
+/* FAQ Answer */
+.faq-answer {
+  display: none;
+  padding: 10px 15px 0;
+  font-size: 0.95rem;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+}
+
+/* Active state */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+
+#footer {
+  background-color: #2E3A3A;
+  color: white;
+    padding: 50px 12%; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #1DB9C3;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 0.95rem;
+  color: #ddd;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-section a:hover {
+  color: #1DB9C3;
+}
+
+.social-icons {
+  display: flex;            
+  gap: 15px;                /* 🧊 Spacing between icons */
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #ddd;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1DB9C3;
+}
+
+
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.text-below-animation1 {
+  position: absolute;
+  top: 265%;
+  left: 5%;
+  width: 400px;
+  color: #eeeeee;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  z-index: 4;
+  text-align: center;
+}
+.text-below-animation3 {
+  position: absolute;
+  top: 460%;
+  left: -30%;
+  width: 700px;
+  color: #eeeeee;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  z-index: 4;
+  text-align: center;
+}
+.vertical-line {
+  width: 2px;                    /* Thickness */
+  height: 190vh;                 /* Height */
+  background-color: white;      /* Line color */
+  position: absolute;           /* Or relative, based on layout */
+  top: 234%;                     /* Vertical center */
+  left: 50%;                    /* Horizontal center */
+  transform: translate(-50%, -50%);
+  opacity: 0.5;                 /* Optional, for softness */
+  z-index: 10;                  /* Keep above background */
+}
+.bulge-sphere {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at center, #ffffff, #cccccc);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+              inset 0 0 10px rgba(255, 255, 255, 0.6);
+  z-index: 15;
+}
+
+/* Adjust each individually below */
+.sphere1 {
+  top: 138%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, #1a7376, #236567);
+  box-shadow: 0 0 25px rgba(25, 137, 145, 0.669),
+              inset 0 0 10px rgba(28, 163, 163, 0.8);
+}
+
+.sphere2 {
+  top: 207%;
+  left: 49.2%;
+  background: radial-gradient(circle at center, #1a7376, #236567);
+  box-shadow: 0 0 25px rgba(25, 137, 145, 0.669),
+              inset 0 0 10px rgba(28, 163, 163, 0.8);
+}
+
+.sphere3 {
+  top: 270%;
+  left: 49.2%;
+  background: radial-gradient(circle at center, #1a7376, #236567);
+  box-shadow: 0 0 25px rgba(25, 137, 145, 0.669),
+              inset 0 0 10px rgba(28, 163, 163, 0.8);
+}
+
+.sphere4 {
+  top: 327%;
+  left: 49.2%;
+  background: radial-gradient(circle at center, #1a7376, #236567);
+  box-shadow: 0 0 25px rgba(25, 137, 145, 0.669),
+              inset 0 0 10px rgba(28, 163, 163, 0.8);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease-out forwards;
+  will-change: opacity, transform;
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+.delay-1 { animation-delay: 0s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.9s; }
+
+/* Initial hidden state */
+.fade-trigger {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When in view */
+.fade-trigger.animate-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Right-to-left initial state */
+.fade-trigger-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-trigger-right.animate-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+

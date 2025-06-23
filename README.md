@@ -1,6 +1,6 @@
 # QueueMate
 
-Website:
+Website: https://akmeghana29.github.io/QueueMate/
 
 What is QueueMate?
 

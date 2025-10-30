@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueueMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="script.js" defer></script>
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Fixed Logo & Menu -->
+  <div class="logo">
+    <span class="logo-q">Q</span><span class="logo-text">ueueMate</span>
+  </div>
+
+  <div id="top-bar">
+  <a class="link-text" href="index.html">Home</a>
+  <a class="link-text" href="about.html">About</a>
+  <a class="link-text" href="signup.html">Sign Up</a>
+  <a class="link-text" href="login.html">Sign In</a>
+</div>
+
+
+  <!-- Background Section -->
+  <div class="bg-image">
+    <div class="overlay"></div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <div class="hero-text-wrapper fade-in-left">
+  <div class="hero-heading">
+    Tired of standing in lines?<br />
+    We'll tell you when it's your turn!
+  </div>
+  <div class="hero-subtext">
+    Get your token, sit back and relax.<br />
+    Let QueueMate do the job for you —<br />
+    stand in the queue virtually and skip the wait.
+  </div>
+  <a href="login.html" class="get-started-btn">Get Started</a>
+</div>
+
+      <!-- Lottie Animation -->
+
+      <!-- Animation 1 -->
+<div class="lottie-animation-one fade-trigger">
+  <lottie-player 
+    src="animation1.json"  
+    background="transparent"  
+    speed="1"  
+    loop  
+    autoplay>
+  </lottie-player>
+</div>
+
+
+<div class="text-below-animation1 fade-trigger">
+  <p>Avoid waiting at Banks, Hospitals, Government Offices, and many other places</p>
+</div>
+
+
+
+<!-- Animation 2 -->
+<div class="lottie-animation-two fade-trigger-right">
+  <lottie-player 
+    src="animation2.json"  
+    background="transparent"  
+    speed="1"  
+    loop  
+    autoplay>
+  </lottie-player>
+</div>
+
+
+<!-- Animation 3 -->
+<div class="lottie-animation-three fade-trigger">
+  <lottie-player 
+    src="animation3.json"  
+    background="transparent"  
+    speed="1"  
+    loop  
+    autoplay>
+  </lottie-player>
+</div>
+<div class="text-below-animation3 fade-trigger">
+  <p>Stand in the queue — without actually standing!<br>QueueMate keeps your spot safe.</p>
+</div>
+
+
+<!-- Animation 4 -->
+<div class="lottie-animation-four fade-trigger-right">
+  <lottie-player 
+    src="animation4.json"  
+    background="transparent"  
+    speed="1"  
+    loop  
+    autoplay>
+  </lottie-player>
+</div>
+
+
+
+
+    </div>
+
+    <!-- Right Info (DO NOT MOVE OUTSIDE) -->
+    <div class="right-info">
+  <div class="info-item fade-in-right delay-1">
+    <img src="smalllogo2.png" alt="Queue Icon" class="info-icon" />
+    <span>Digital<br />queueing</span>
+  </div>
+  <div class="info-item fade-in-right delay-2">
+    <img src="smalllogo1.png" alt="Time Icon" class="info-icon" />
+    <span>Save<br />time</span>
+  </div>
+  <div class="info-item fade-in-right delay-3">
+    <img src="smalllogo3.png" alt="Booking Icon" class="info-icon" />
+    <span>Book<br />easily</span>
+  </div>
+  <div class="info-item fade-in-right delay-4">
+    <img src="smalllogo4.png" alt="Notification Icon" class="info-icon" />
+    <span>Stay<br />notified</span>
+  </div>
+</div>
+
+    <div class="right-description fade-trigger-right">
+  Get updates on live queue status<br />
+  and be notified of your turn
+</div>
+
+<div class="right2-description fade-trigger-right">
+  Simple and seemless booking experience<br />
+  with just few clicks.
+</div>
+
+
+  </div>
+
+  <!-- Scrollable Section -->
+  <div class="green-section"></div>
+  <div class="vertical-line"></div>
+  <div class="bulge-sphere sphere1"></div>
+<div class="bulge-sphere sphere2"></div>
+<div class="bulge-sphere sphere3"></div>
+<div class="bulge-sphere sphere4"></div>
+
+<!-- Modern FAQ Accordion -->
+<section class="faq-section">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <div class="faq-box">
+    <div class="faq-item">
+      <button class="faq-question">What is QueueMate?</button>
+      <div class="faq-answer">
+        <p>QueueMate is a smart queue management system that lets you wait virtually instead of physically standing in line.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Is QueueMate free to use?</button>
+      <div class="faq-answer">
+        <p>Yes, QueueMate is completely free for all users. You can book and track your place without paying anything.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Where can I use QueueMate?</button>
+      <div class="faq-answer">
+        <p>You can use it at supported places like hospitals, banks, and government offices that partner with QueueMate.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How will I know when it’s my turn?</button>
+      <div class="faq-answer">
+        <p>QueueMate sends live notifications and updates, so you're alerted before your turn comes up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer id="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>QueueMate</h3>
+      <p>Say goodbye to long queues. Manage your time smarter with QueueMate.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: support@queuemate.com</p>
+      <p>Phone: +91-98765-43210</p>
+      <p>Delhi, India</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 QueueMate. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Observer for fade in from left to right
+  const observerLeft = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-left');
+      } else {
+        entry.target.classList.remove('animate-left');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observer for fade in from right to left
+  const observerRight = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-right');
+      } else {
+        entry.target.classList.remove('animate-right');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Apply observers to respective triggers
+  document.querySelectorAll('.fade-trigger').forEach(el => observerLeft.observe(el));
+  document.querySelectorAll('.fade-trigger-right').forEach(el => observerRight.observe(el));
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle('active');
+    });
+  });
+</script>
+
+
+
+</body>
+
+
+
+</html>
